@@ -1,0 +1,43 @@
+.grid_list{
+    margin-left: 50px;
+}
+
+.viewlist {
+    min-width: 300px;;
+}
+
+.viewlist li:first-child {
+    font-weight: bold;
+}
+
+.viewlist li {
+    display: flex;
+    border-bottom: 1px solid #cecaca;
+    padding: 8px;
+    margin: 0;
+}
+
+.viewlist p{
+    margin: 0 0 0 3px;
+    font-size: 1em
+}
+
+.viewlist li:last-child {
+    border-bottom: none;
+}
+
+.viewlist li .position {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #454545;
+    color: #fff;
+    border-radius: 8px;
+    margin-right: 15px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.viewlist li .user_info {
+    
+}

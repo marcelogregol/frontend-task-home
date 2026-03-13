@@ -1,0 +1,76 @@
+﻿:root {
+  --bg: #f4f6f3;
+  --surface: #ffffff;
+  --surface-soft: #f9fbf8;
+  --border: #dbe3d7;
+  --text: #243126;
+  --muted: #667364;
+  --accent: #1f5f45;
+  --accent-soft: #e3efe8;
+  --danger: #b42318;
+  --shadow: 0 18px 45px rgba(36, 49, 38, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at top left, rgba(31, 95, 69, 0.12), transparent 24%),
+    linear-gradient(180deg, #f7faf6 0%, var(--bg) 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, input, label, a, button, textarea {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  color: var(--text);
+}
+
+p {
+  color: var(--muted);
+}
+
+label {
+  display: block;
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}

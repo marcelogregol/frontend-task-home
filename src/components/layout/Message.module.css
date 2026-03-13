@@ -1,0 +1,26 @@
+﻿.message {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: min(620px, calc(100% - 24px));
+    padding: 10px 14px;
+    margin: 0;
+    text-align: center;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    box-shadow: 0 12px 28px rgba(36, 49, 38, 0.08);
+}
+
+.success {
+    color: #155724;
+    background-color: #D4EDDA;
+    border-color: #C3E6CB;
+}
+
+.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}

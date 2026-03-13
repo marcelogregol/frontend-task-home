@@ -1,0 +1,23 @@
+.box {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.box input {
+    flex: 1;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    font-size: 0.90rem;
+    color: #363636;
+    background-color: #D5D5D5;
+}
+
+.box button {
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-left: 1px solid #bdbdbd;
+}

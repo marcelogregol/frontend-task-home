@@ -1,0 +1,42 @@
+﻿.container{
+    display: flex;
+    align-items: center;
+}
+.image_container {
+    flex: 0 0 65%;
+    height: 100vh;
+    background-image: url('/images/bg-login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.form_container {
+    flex: 0 0 25%;
+    padding: 5%;
+}
+
+.form_container input[type='submit'] {
+    border-radius: 8px;
+    background-color: #25B456;
+    color: #fff;
+    border: none;
+    min-width: 100px;
+    min-height: 2.5em;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.form_container input[type='submit']:hover {
+    background-color: #1C8A42;
+}
+
+.form_container p {
+    margin-top: 1em;
+}
+
+.form_container p a {
+    color: #4d4d4d;
+    font-weight: bolder;
+}

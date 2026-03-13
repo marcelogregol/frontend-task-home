@@ -1,0 +1,153 @@
+﻿.control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.9em;
+}
+
+.label {
+    display: block;
+    font-size: 0.84em;
+    font-weight: 700;
+    color: #243126;
+    margin-bottom: 4px;
+}
+
+.field,
+.textareaField {
+    width: 100%;
+    border: 1px solid #d7dfd3;
+    border-radius: 12px;
+    color: #314030;
+    font-weight: 600;
+    font-family: "Red Hat Display", sans-serif;
+    background: rgba(255, 255, 255, 0.96);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.field {
+    min-height: 40px;
+    padding: .72em .82em;
+}
+
+.textareaField {
+    min-height: 88px;
+    padding: .72em .82em;
+    resize: vertical;
+}
+
+.field:focus,
+.textareaField:focus {
+    outline: none;
+    border-color: #1f5f45;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(31, 95, 69, 0.1);
+}
+
+.field::placeholder,
+.textareaField::placeholder {
+    color: #7b7b7b;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+.numberField {
+    appearance: auto;
+    -moz-appearance: number-input;
+    padding-right: 0.9em;
+    background: linear-gradient(180deg, #f7fbf8 0%, #edf5ef 100%);
+    border-color: #cfe0d2;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.numberField:hover {
+    border-color: #b6cfbb;
+    background: linear-gradient(180deg, #fafdfa 0%, #edf6ef 100%);
+}
+
+.numberField::-webkit-outer-spin-button,
+.numberField::-webkit-inner-spin-button {
+    opacity: 1;
+    height: 28px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.listItem {
+    color: #000;
+    font-weight: 500;
+    border: 1px solid #ddd;
+    font-family: "Red Hat Display", sans-serif;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+    cursor: grab;
+}
+
+.dateRange p {
+    margin: 0;
+    font-size: 0.8em;
+}
+
+.listItem:hover {
+    background-color: #efefef;
+}
+
+.listItem:active {
+    cursor: grabbing;
+}
+
+.dragging {
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 1366px), (max-height: 860px) {
+    .control {
+        margin-bottom: 0.75em;
+    }
+
+    .label {
+        font-size: 0.8em;
+        margin-bottom: 3px;
+    }
+
+    .field,
+    .textareaField {
+        border-radius: 10px;
+    }
+
+    .field {
+        min-height: 36px;
+        padding: .64em .74em;
+    }
+
+    .textareaField {
+        min-height: 76px;
+        padding: .64em .74em;
+    }
+
+    .numberField {
+        padding-right: 0.8em;
+    }
+}
+
+@media (max-width: 1024px) {
+    .label {
+        font-size: 0.78em;
+    }
+
+    .field,
+    .textareaField {
+        border-radius: 10px;
+    }
+
+    .field {
+        min-height: 34px;
+        padding: .6em .7em;
+    }
+
+    .textareaField {
+        min-height: 72px;
+        padding: .6em .7em;
+    }
+}
