@@ -60,6 +60,7 @@ function Profile() {
                 },
             })
 
+            window.dispatchEvent(new Event('user-updated'))
             setFlashMessage(response.data.message, msgType)
         } catch (err) {
             msgType = 'error'

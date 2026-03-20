@@ -2,7 +2,7 @@
 import { useContext } from 'react'
 import { useState, useEffect } from 'react'
 import styles from './NavBar.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { AiOutlineTeam, AiOutlineSetting } from 'react-icons/ai'
 import { IoIosAddCircleOutline } from 'react-icons/io'
 import { LuLogOut } from 'react-icons/lu'
@@ -15,36 +15,49 @@ function Navbar() {
     const [token] = useState(localStorage.getItem('token') || '')
     const { logout } = useContext(Context)
     const [teamId, setTeamId] = useState(null)
+    const location = useLocation()
 
     useEffect(() => {
+        async function loadUser() {
+            try {
+                const response = await api.get('/users/checkuser', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+
+                const userData = response.data
+                if (!userData) {
+                    setUser({})
+                    setTeamId(null)
+                    return
+                }
+
+                setUser(userData)
+                if (userData.teamId) {
+                    setTeamId(userData.teamId)
+                }
+            } catch {
+                setUser({})
+                setTeamId(null)
+            }
+        }
+
         if (!token) {
             setUser({})
             setTeamId(null)
             return
         }
 
-        api.get('/users/checkuser', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-        .then((response) => {
-            const userData = response.data
-            if (!userData) {
-                setUser({})
-                setTeamId(null)
-                return
-            }
-            setUser(userData)
-            if (userData.teamId) {
-                setTeamId(userData.teamId)
-            }
-        })
-        .catch(() => {
-            setUser({})
-            setTeamId(null)
-        })
-    }, [token])
+        loadUser()
+
+        window.addEventListener('user-updated', loadUser)
+        return () => window.removeEventListener('user-updated', loadUser)
+    }, [token, location.pathname])
+
+    const profileImage = user.image
+        ? `${import.meta.env.VITE_API}/images/users/${user.image}`
+        : ''
 
     return (
         <nav className={styles.navbar}>
@@ -82,7 +95,7 @@ function Navbar() {
                     <li>
                         <Link to="/profile">
                             <RoundedImage
-                                src={`${import.meta.env.VITE_API}/images/users/${user.image}`}
+                                src={profileImage}
                                 alt={user.name}
                                 width="px35"
                             />
