@@ -1,7 +1,7 @@
 ﻿import api from '../../utils/api'
 import { useContext } from 'react'
 import { useState, useEffect } from 'react'
-import styles from './Navbar.module.css'
+import styles from './NavBar.module.css'
 import { Link } from 'react-router-dom'
 import { AiOutlineTeam, AiOutlineSetting } from 'react-icons/ai'
 import { IoIosAddCircleOutline } from 'react-icons/io'
@@ -84,3 +84,4 @@ function Navbar() {
 }
 
 export default Navbar
+
