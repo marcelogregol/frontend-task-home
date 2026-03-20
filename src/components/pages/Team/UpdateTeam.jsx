@@ -82,6 +82,11 @@ function UpdateTeam() {
     const navigate = useNavigate()
 
     useEffect(() => {
+        if (!token) {
+            setCurrentUserEmail('')
+            return
+        }
+
         api.get('/users/checkuser', {
             headers: { Authorization: `Bearer ${token}` },
         }).then((response) => {

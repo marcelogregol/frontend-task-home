@@ -11,6 +11,11 @@ function Home() {
     const [token] = useState(localStorage.getItem('token') || '')
 
     useEffect(() => {
+        if (!token) {
+            setTasks([])
+            return
+        }
+
         api.get('/task/all', {
             headers: {
                 Authorization: `Bearer ${token}`,

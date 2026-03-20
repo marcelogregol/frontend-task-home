@@ -13,12 +13,19 @@ function Profile() {
     const { setFlashMessage } = useFlashMessage()
 
     useEffect(() => {
+        if (!token) {
+            setUser({})
+            return
+        }
+
         api.get('/users/checkuser', {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         }).then((response) => {
-            setUser(response.data)
+            setUser(response.data || {})
+        }).catch(() => {
+            setUser({})
         })
     }, [token])
 

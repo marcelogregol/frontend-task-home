@@ -17,6 +17,12 @@ function Navbar() {
     const [teamId, setTeamId] = useState(null)
 
     useEffect(() => {
+        if (!token) {
+            setUser({})
+            setTeamId(null)
+            return
+        }
+
         api.get('/users/checkuser', {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -24,10 +30,19 @@ function Navbar() {
         })
         .then((response) => {
             const userData = response.data
+            if (!userData) {
+                setUser({})
+                setTeamId(null)
+                return
+            }
             setUser(userData)
             if (userData.teamId) {
                 setTeamId(userData.teamId)
             }
+        })
+        .catch(() => {
+            setUser({})
+            setTeamId(null)
         })
     }, [token])
 

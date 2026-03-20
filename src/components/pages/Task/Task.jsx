@@ -20,6 +20,11 @@ function Task() {
     const { createTask } = useTask()
 
     useEffect(() => {
+        if (!token) {
+            setTeams([])
+            return
+        }
+
         api
             .get('/users/checkuser', {
                 headers: {
